@@ -3,8 +3,11 @@
 #include <memory>
 #include "Laser.h"
 
-const float SPEED = 0.3f;
+const float SPEED = 0.4f;
 const int FIRE_DELAY = 200;
+
+const int WINDOW_WIDTH = 800;
+const int WINDOW_HEIGHT = 600;
 
 Ship::Ship()
 {
@@ -25,10 +28,10 @@ void Ship::update(sf::Time& elapsed)
 
 	int msElapsed = elapsed.asMilliseconds();
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) y -= SPEED * msElapsed;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) y += SPEED * msElapsed;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) x -= SPEED * msElapsed;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) x += SPEED * msElapsed;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && pos.y > 5) y -= SPEED * msElapsed;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && pos.y < WINDOW_HEIGHT - 125) y += SPEED * msElapsed;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && pos.x > 0) x -= SPEED * msElapsed;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && pos.x < WINDOW_WIDTH - 100) x += SPEED * msElapsed;
 
 	sprite_.setPosition(sf::Vector2f(x, y));
 
