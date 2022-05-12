@@ -1,6 +1,6 @@
 #pragma once
 #include "Engine/GameEngine.h"
-
+#include "GameScene.h"
 #include "Explosion.h"
 
 class Meteor : public GameObject
@@ -13,6 +13,7 @@ public:
 	void update(sf::Time& elapsed);
 	sf::FloatRect getCollisionRect();
 	void handleCollision(GameObject& otherGameObject);
+
 private:
 	sf::Sprite sprite_;
 	float speedVa;
