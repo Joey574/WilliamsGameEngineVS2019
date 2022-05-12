@@ -49,5 +49,7 @@ void Meteor::handleCollision(GameObject& otherGameObject)
 	ExplosionPtr explosion = std::make_shared<Explosion>(sprite_.getPosition());
 	GAME.getCurrentScene().addGameObject(explosion);
 
+	increaseScore();
+
 	makeDead();
 }
