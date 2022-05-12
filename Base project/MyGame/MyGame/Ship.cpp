@@ -49,3 +49,8 @@ void Ship::update(sf::Time& elapsed)
 		GAME.getCurrentScene().addGameObject(laser);
 	}
 }
+
+sf::FloatRect Ship::getCollisionRect()
+{
+	return sprite_.getGlobalBounds();
+}
